@@ -1,4 +1,5 @@
-
+## Derek Barbosa, U6631565
+# Received verbal debugging help from Ibrahim Chand
 import random
 import matplotlib.pyplot as plt
 import numpy as np
@@ -20,7 +21,7 @@ terminationStates = [[0,0], [gridSize-1, gridSize-1]]
 actions = [[-1, 0], [1, 0], [0, 1], [0, -1]] 
 
 #number of iterations we want to do
-numIterations = 100
+numIterations = 1000
 
 
 def actionRewardFunction(initialPosition, action):
@@ -66,19 +67,23 @@ for it in range(numIterations):
     
     #this will be set to Vcurrent - Vnext
     deltaState = []
+    
 
     for state in states:
     
         #the next variable will be equal to the new V iterate by the end of the process
         weightedRewards = 0
+        vIterate = [];
         
         #Compute the Bellman iterate
         for action in actions:
             #compute next position and reward from taking that action
             finalPosition, reward = actionRewardFunction(state, action)
-            ### ADD A SINGLE LINE HERE UPDATING THE VARIABLE weightedRewards
-            weightedRewards = gamma
-            
+            #Compute taking the reward up/down/left/right
+            vIterate.append(reward+gamma*valueMap[finalPosition[0],finalPosition[1]])
+
+        #take the max here!!
+        weightedRewards = max(vIterate);
         
         #append Vcurrent-Vnext for the current state
         deltaState.append(np.abs(copyValueMap[state[0], state[1]]-weightedRewards))
@@ -86,19 +91,26 @@ for it in range(numIterations):
         #update the value of the next state, but in the copy rather than the original
         copyValueMap[state[0], state[1]] = weightedRewards
     
-    ##add value iteration here
-
     #this is now an array of size numIterations, where every entry is an array of Vcurrent-Vmax    
     deltas.append(deltaState)
     
     #update the value map with what we just computed
     valueMap = copyValueMap
-    
+    policyMap = np.zeros((gridSize, gridSize))
+
     #for selected iterations, print the value function
     if it in [0,1,2,9, 99, numIterations-1]:
         print("Iteration {}".format(it+1))
         print(valueMap)
-        print("")
+        print(" ")
+
+        if(it == numIterations-1):
+            print("Policy Map")
+            print(policyMap)
+            print("")
+                            
+
+            
         
 #plot how the deltas decay        
 plt.figure(figsize=(20, 10))

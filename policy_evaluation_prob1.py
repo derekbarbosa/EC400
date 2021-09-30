@@ -1,4 +1,5 @@
-
+## Derek Barbosa, U6631565
+# Received verbal debugging help from Ibrahim Chand
 from os import stat
 import random
 from typing import final
@@ -23,7 +24,7 @@ terminationStates = [[0,0], [gridSize-1, gridSize-1]]
 actions = [[-1, 0], [1, 0], [0, 1], [0, -1]] 
 
 #number of iterations we want to do
-numIterations = 100
+numIterations = 1000
 
 
 def actionRewardFunction(initialPosition, action):
