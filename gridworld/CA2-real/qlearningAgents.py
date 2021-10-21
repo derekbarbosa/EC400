@@ -74,8 +74,8 @@ class QLearningAgent(ReinforcementAgent):
         #grab self.legalActions
         legalActions = self.getLegalActions(state);
         #check if there are legal actions
-        if(len(self.getLegalActions) == 0):
-              return 0.0
+        if(len(legalActions) == 0):
+          return 0.0
         
         qValues = [];
         for action in legalActions:
@@ -94,9 +94,9 @@ class QLearningAgent(ReinforcementAgent):
         legalActions = self.getLegalActions(state);
 
         if len(legalActions) == 0:
-              return None;
+          return None;
         
-        bestAction = "";
+        bestAction = -1;
         maxQval = -1;
         for actions in legalActions:
               if maxQval <= self.getQValue(state,actions) or maxQval == -1:
@@ -143,14 +143,9 @@ class QLearningAgent(ReinforcementAgent):
         a = self.alpha;
         gamma = self.discount;
         currQ = self.Qvalues[(state,action)];
-        maxnextQ = (-1);
-        
-        willNextBeLegal = self.getLegalActions(nextState)
-        for actions in willNextBeLegal:
-              if maxnextQ <= self.Qvalues[(nextState,actions)]:
-                  maxnextQ = self.Qvalues[(nextState,actions)];
+        maxnextQ = self.computeValueFromQValues(nextState);
 
-        self.Qvalues[(state,action)] = currQ + a * (reward + maxnextQ - currQ);
+        self.Qvalues[(state,action)] = currQ + a * (reward + gamma*maxnextQ - currQ);
 
     def getPolicy(self, state):
         return self.computeActionFromQValues(state)
