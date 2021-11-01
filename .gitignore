@@ -2,3 +2,7 @@
 .DS_Store
 U66315658_Coding2.zip
 gridworld/.DS_Store
+environment.pyc featureExtractors.pyc game.pyc ghostAgents.pyc graphicsDisplay.pyc graphicsGridworldDisplay.pyc graphicsUtils.pyc gridworld.pyc layout.pyc learningAgents.pyc mdp.pyc pacman.pyc pacmanAgents.pyc qlearningAgents.pyc textDisplay.pyc textGridworldDisplay.pyc util.pyc valueIterationAgents.pyc
+gridenv
+__pycache*
+gridworld/CA2-real/environment.pyc gridworld/CA2-real/featureExtractors.pyc gridworld/CA2-real/game.pyc gridworld/CA2-real/ghostAgents.pyc gridworld/CA2-real/graphicsDisplay.pyc gridworld/CA2-real/graphicsGridworldDisplay.pyc gridworld/CA2-real/graphicsUtils.pyc gridworld/CA2-real/gridworld.pyc gridworld/CA2-real/layout.pyc gridworld/CA2-real/learningAgents.pyc gridworld/CA2-real/mdp.pyc gridworld/CA2-real/pacman.pyc gridworld/CA2-real/pacmanAgents.pyc gridworld/CA2-real/qlearningAgents.pyc gridworld/CA2-real/textDisplay.pyc gridworld/CA2-real/textGridworldDisplay.pyc gridworld/CA2-real/util.pyc gridworld/CA2-real/valueIterationAgents.pyc
