@@ -7,3 +7,5 @@ gridenv
 __pycache*
 gridworld/CA2-real/environment.pyc gridworld/CA2-real/featureExtractors.pyc gridworld/CA2-real/game.pyc gridworld/CA2-real/ghostAgents.pyc gridworld/CA2-real/graphicsDisplay.pyc gridworld/CA2-real/graphicsGridworldDisplay.pyc gridworld/CA2-real/graphicsUtils.pyc gridworld/CA2-real/gridworld.pyc gridworld/CA2-real/layout.pyc gridworld/CA2-real/learningAgents.pyc gridworld/CA2-real/mdp.pyc gridworld/CA2-real/pacman.pyc gridworld/CA2-real/pacmanAgents.pyc gridworld/CA2-real/qlearningAgents.pyc gridworld/CA2-real/textDisplay.pyc gridworld/CA2-real/textGridworldDisplay.pyc gridworld/CA2-real/util.pyc gridworld/CA2-real/valueIterationAgents.pyc
 Coding3.zip
+tuxcart_ml/
+tuxcart/homework/drive_data/
