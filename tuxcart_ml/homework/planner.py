@@ -15,20 +15,28 @@ def spatial_argmax(logit):
 
 class Planner(torch.nn.Module):
     def __init__(self):
-
       super().__init__()
 
       layers = []
       layers.append(torch.nn.Conv2d(3,16,5,2,2))
       layers.append(torch.nn.ReLU())
-      layers.append(torch.nn.Conv2d(16,1,5,2,2))
-      
+      layers.append(torch.nn.Conv2d(16,32,5,2,2))
+      layers.append(torch.nn.ReLU())
+      layers.append(torch.nn.Conv2d(32,48,5,2,2))
+      layers.append(torch.nn.ReLU())
+      layers.append(torch.nn.Conv2d(48,1,5,2,2))
+
+
+
+
 
       self._conv = torch.nn.Sequential(*layers)
 
 
 
     def forward(self, img):
+        
+
         """
         Your code here
         Predict the aim point in image coordinate, given the supertuxkart image
